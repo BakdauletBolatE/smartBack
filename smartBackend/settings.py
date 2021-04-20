@@ -91,9 +91,9 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'swiu2',
-            'USER': 'postgres',
-            'PASSWORD': '123',
+            'NAME': 'smarthub',
+            'USER': 'bbb',
+            'PASSWORD': 'bagivox123F',
             'HOST': 'localhost',
             'PORT': '5432',
         }
