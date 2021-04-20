@@ -1,0 +1,35 @@
+{% extends 'layouts/app.html' %}
+{% load static %}
+{% block content %}
+<div class="background" style="background:url('{% static 'img/background.JPG' %}') no-repeat center;"></div>
+<section class="atau">
+    <div class="container">
+        <h1 class="atau__title">Иновация</h1>
+        <p class="atau__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat eveniet nobis illum ipsam suscipit perspiciatis, quasi quia. Pariatur aspernatur, assumenda libero, laborum in sunt placeat tempora iusto ullam perspiciatis repudiandae.</p>
+         <div class="card mt-16">
+             <div class="card__row">
+                 {% for direction in directions %}
+                 <article class="card__item">
+                     
+                     <div class="card__img-block">
+                        {% if direction.directionsimgs.first.img.url %}
+                         <img class="card__img" src="{{direction.directionsimgs.first.img.url}}" alt="">
+                         {% endif %}
+                     </div>
+                    
+                     <div class="card__text">
+                        <div class="card__title">{{direction.name}}</div>
+                        <p class="card__description">{{direction.description}}</p>
+                        <button class="card__btn">Подробнее</button>
+                     </div>
+                    
+                 </article>
+                 {% endfor %}   
+             </div>
+         </div>
+          
+    </div>
+</section>
+
+
+{% endblock %}

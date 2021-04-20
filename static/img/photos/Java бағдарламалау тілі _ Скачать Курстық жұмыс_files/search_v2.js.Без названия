@@ -1,0 +1,53 @@
+String.prototype.replaceAll = function(str1, str2, ignore)
+{
+    return this.replace(new RegExp(str1.replace(/([\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, function(c){return "\\" + c;}), "g"+(ignore?"i":"")), str2);
+};
+
+function runSearch(searchType, id, langURL)
+{
+    $("#bSearch").prop("disabled", 'disabled');
+    $('#gifFrame').show();
+    $('#gifFrame').attr('src', '/assets/img/loading.gif');
+    search = $('#'+id).val();
+
+    stopSymbols = [' ', '–', '—', '-', '<br', '<', '>', '(', ')', '[', ']',
+                    '.', ',', '«', '»', '"', '”', '“', '„', '’', '‘',
+                    '=', '+', '*', ':', ';', '/', '?', '!', '|', '&',
+                    '@', '#', '$', '%', '^', '¹',
+                    '…', '?', '•', '•', '-', '?', '?', '‰', '_', '?', "\'"];
+    for (var i = 0; i < stopSymbols.length; i++) {
+        search = search.replaceAll(stopSymbols[i], '-');
+    }
+    search = search.replace(/-+/g, "-");
+
+    if ('def'==searchType)
+        window.location = langURL+"search/"+search;
+    else
+        window.location = langURL+"search/"+searchType+'/'+search;
+    $('#gifFrame').attr('src', '/assets/img/loading.gif');
+    return false;
+}
+
+function filterShow(filter)
+{
+    $('#dBtnFilter').hide();
+    $('#dFilter').show();
+}
+
+function filterSearch(filter, langURL)
+{
+    if ( $("#search").val().length>1 )
+    {
+        $('#dFilter').hide();
+        if ('filter0'==filter)
+            location.replace( langURL+"search/"+$("#search").val() );
+        else if ('filterKZ'==filter)
+            location.replace( "search/"+$("#search").val() );
+        else if ('filterRU'==filter)
+            location.replace( "ru/search/"+$("#search").val() );
+        else
+            location.replace( langURL+"search/"+filter+'/'+$("#search").val() );
+    }
+    else
+        $("#search").fadeOut(500).fadeIn(1000).focus();
+}

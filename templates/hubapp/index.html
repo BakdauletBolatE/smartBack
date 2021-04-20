@@ -1,0 +1,131 @@
+{% extends 'layouts/app.html' %}
+{% load static %}
+{% block content %}
+<div class="background" style="background:url({% static 'img/background.JPG' %}) no-repeat center"></div>
+        <!-- Section Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero__description">
+            {% for cat in serviceCat %}
+            <div class="toglle-item">
+                <div class="hero__block">
+                    <h1 class="hero__description-text unselect cursor-p"><i class="colored-icons {{cat.icon}}"></i>{{cat.name}}</h1>
+                </div>
+                <ul class="toglle-item__list">
+                    {% for item in cat.services.all %}
+                    <div class="toglle-item__item">
+                        <li class="toglle-item__icon-container"><i class="toglle-item__icon {{item.icon}}"></i></li>
+                        <li class="toglle-item__text">{{item.name}}</li>
+                    </div>
+                    {% endfor %}
+                </ul>    
+            </div>
+            {% endfor %} 
+        </div>
+    </div>
+</section>
+
+<!-- Section box -->
+<section class="box">
+    <div class="container">
+        <div class="box__row">
+            {% for direction in directions %}
+            <div class="box__item">
+                <!-- <img class="box__img" src="img/elements/icon.png" alt=""> -->
+                <img class="box__img" src="{{ direction.img.url }}" alt="">
+                <h2 class="box__title">{{ direction.name }}</h2>
+                <!-- <p class="box__decription">{{direction.description}}  -->
+                </p>
+                <a class="btn" href="#">Подробнее</a>
+            </div>
+            {% endfor %}
+           
+        </div>
+    </div>
+</section>
+
+<section class="greeting">
+    <div class="container">
+        <div class="greeting__row">
+            <div class="greeting__text">
+                <h3 class="main-title a-self-str">Наша Миссия!</h3>
+                <p class="main-description mt-5">Цифрлық технологияларды пайдалана отырып қызметкерлерге, білім алушыларға қызмет сапасын жақсарту, сондай-ақ барлық салада цифрлық технологияның енуін қамтамасыз ететін түбегейлі жаңа даму траекториясына көшіруге жағдай жасау болып табылады. </p>
+                <a class="btn mt-5 a-self-sta" href="#">Наши Работы</a>
+            </div>
+            <div class="greeting__column">
+                <img class="greeting__img"  src="{% static './img/photos/ourteam.png' %}" alt="">
+            </div>
+        </div>
+    
+    
+</section>
+
+
+
+
+<section class="solutions">
+    <div class="container">
+        <div class="solutions__text">
+            <h3 class="main-title">Solutions</h3>
+            <div class="solutions__text-row mt-5">
+                <div class="solutions__text-column">
+                    <h4 class="secondary-title">Safety Solutions</h4>  
+                    <p class="main-description mt-3">Perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et </p>
+                </div>
+                <div class="solutions__text-column">
+                    <h4 class="secondary-title">Design Solutions</h4>  
+                    <p class="main-description mt-3">Unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa vitae dicta sunt explicabo. Nemo enim ipsam.</p>
+                </div>
+                <div class="solutions__text-column">
+                    <h4 class="secondary-title">Enviromental Solutions</h4>  
+                    <p class="main-description mt-3">Omnis perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore </p>
+                </div>
+                <div class="solutions__text-column">
+                    <h4 class="secondary-title">Risk Solutions</h4>  
+                    <p class="main-description mt-3">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<section class="quotes">
+    <div class="container">
+        <div class="quotes__row">
+            <div class="quotes__text">
+                <h3 class="main-title">What people say</h3>
+                <p class="main-description mt-12">Omnis perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore <h5>-Kale, SkyNet</h5>
+                </p>
+                <a class="btn mt-7" href="#">Read More</a>
+                <div class="quotes__img ">
+                    <img class="quotes__img-i" src="img/photos/2.jpg" alt="">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+        
+</section>
+<section class="workers">
+    <div class="container">
+        <h3 class="main-title">Наша Команда</h3>
+        <div class="workers__row mt-5">
+            {% for worker in workers %}
+            <article class="workers__item">
+                <a href="{% url 'work:worker-detail' worker.id %}">
+                    <div class="workers__photo">
+                        <img class="workers__photo-s" src="{{worker.img.url}}" alt="">
+                        <h2 class="workers__name">{{worker.name}}</h2>
+                        <h3 class="workers__pro">“{{worker.position}}”</h3>
+                    </div>
+                    <div class="workers__description">
+                        {{worker.description}} 
+                    </div>
+                </a>
+            </article>
+            {% endfor %} 
+        </div>
+    </div>
+</section>
+{% endblock %}

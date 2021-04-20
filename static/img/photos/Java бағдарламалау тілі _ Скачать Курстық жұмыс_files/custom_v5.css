@@ -1,0 +1,151 @@
+.hide{ display: none;}
+.fleft{ float: left;}
+.fright{ float: right;}
+
+.refLink{ color: #000; font-size:1.1em;}
+.refLinkM{ color: #000;}
+
+
+/* headline */
+.headline {
+  border-bottom: 1px dotted #e4e9f0;
+  display: block;
+}
+
+.headlineText{
+  font-size: 20px;
+  line-height: 27px;
+  color: #585f69;
+  display: inline-block;
+}
+
+/* categories */
+.categories li {
+    border-bottom: 1px dotted #eee;
+    padding: 6px 0;
+}
+
+.categories li a {
+  color: #555;
+  font-size: 13px;
+}
+
+/* search-block */
+.search-block {
+  padding: 80px 0;
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-block:before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: " ";
+  position: absolute;
+  background: rgba(0,0,0,0.3);
+}
+
+.searchMobile{
+  background: url(/themes/img/studkzLogoMobile.png) 50% 0 repeat fixed;padding: 3px 0 19px 0; margin-top:3px;
+}
+/* search-block ------------------------------*/
+
+
+/* logo-a */
+.logo{
+	background: url(/themes/img/studkzLogo.png) no-repeat;
+	height: 69px;
+	width: 300px;
+	line-height: 69px;
+  margin-bottom: 50px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 200;
+  text-shadow: none;
+}
+
+.logo2{
+  background: url(/themes/img/studkzLogo.png) no-repeat;
+  height: 69px;
+  line-height: 69px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 200;
+  text-shadow: none;
+}
+
+.logo-a{
+  color:white;
+}
+
+.logo-a:hover{
+  color:white;
+}
+/* search-block ------------------------------*/
+
+
+/*  ulTop  */
+#ulTop li {
+  margin-right: 15px;
+}
+/* ulTop ------------------------------*/
+
+.nocopy{
+ -moz-user-select: none;
+ -webkit-user-select: none;
+ -ms-user-select: none;
+ -o-user-select: none;
+ user-select: none;
+ /*font-size: 14px;*/
+ /*line-height: 1 !important;*/
+ font-size: 1.21429rem !important;
+ font-weight: 100;
+}
+
+.border-spade {
+  /*border-top-width: 1px;*/
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  /*border-top-style: solid;*/
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-color: #eee;
+}
+
+.hrMob {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.alert-visa {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+#gifFrame {
+  display: none;
+  width:170px;
+  height:150px;
+}
+
+.favorite {
+  cursor: pointer;
+  color: #e64b3b !important;
+}
+
+.fonteye {
+  font-size: 1.21429rem !important;
+}
+
+#footbar {
+  background-color: transparent;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

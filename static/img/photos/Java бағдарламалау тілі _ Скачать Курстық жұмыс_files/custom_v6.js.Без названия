@@ -1,0 +1,154 @@
+function ajaxInstruction(e, fileType, fileID, langURL)
+{
+    $(e).hide();
+    $("#bFootload").hide();
+    $('#gif').show();
+    $('#divInstru').load(langURL+"billing/instruction/"+fileType+"/"+fileID,
+        function()
+        {
+            $('#gif').hide();
+            $('#divInstru').show();
+        }
+    );
+}
+
+function buyAccount(e, fileType, fileID)
+{
+    $(e).hide();
+    $('#gif').show();
+    $('#dBuySite').load("billing/buyAccount/"+fileType+"/"+fileID,
+        function()
+        {
+            $('#gif').hide();
+            $('#dBuySite').show();
+            $('#dBuySite').removeClass('hide');
+        }
+    );
+}
+
+function gap(referatID, langURL, showAlert){
+    if(true==showAlert)
+    {
+        if ('ru/'==langURL)
+            alert('Для получения полной версии работы вам нужно купить ее.');
+        else
+            alert('Жұмыстың толық нұсқасын сізге сатып алу керек.');
+    }
+
+    $('#bInst').click();
+    if (typeof showAsPicture === 'function') { showAsPicture(referatID, langURL); }
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+ function showVideoInst(e)
+ {
+     $(e).hide();
+     $("#videoInst").show();
+ }
+
+function passInputCheck(id)
+{
+    eVal = $('#'+id).val();
+    if (eVal.length==0)
+    {
+        alert('Кілт сөзді енгізіңіз. / Введите пароль.');
+        $('#'+id).focus();
+        return false;
+    }
+
+    return true;
+}
+
+function showAsPicture(referatID, langURL)
+{
+    if ($('#btnAsPic').is(":visible"))
+    {
+        $('#gifAsPic').show();
+        $('#btnAsPic').hide();
+        $('#dAsPic').show();
+        $('#asPicPhS').load(langURL+"referat/aspic/"+referatID,
+            function(){ $('#gifAsPic').hide(); }
+        );
+    }
+}
+
+function showAsPicturePrezent(prezentID)
+{
+    if ($('#btnAsPic').is(":visible"))
+    {
+        $('#gifAsPic').show();
+        $('#btnAsPic').hide();
+        $('#dAsPic').show();
+        $('#asPicPhS').load("prezentatsiya/aspic/"+prezentID,
+            function(){ $('#gifAsPic').hide(); }
+        );
+    }
+}
+
+function favorite(e, referatID)
+{
+    if ('<i class="fa fa-heart-o"></i>'==$(e).html())
+    {
+        $(e).empty().append('<i class="fa fa-heart"></i>');
+        $.get('favorite/click/add/1/'+referatID);
+    }
+    else{
+        $(e).empty().append('<i class="fa fa-heart-o"></i>');
+        $.get('favorite/click/del/1/'+referatID);
+    }
+}
+
+function otherEnter(e, referatID)
+{
+    if (13==e.keyCode)
+        sendOtherMistake(referatID);
+}
+function sendMistake(referatID, mistakeTypeID)
+{
+    $("#thank").show();
+    if($("#chMistake"+mistakeTypeID).prop("checked") == true)
+        checked = 1;
+    else
+        checked = 0;
+    $.post('referat/mistake', { mistakeTypeID:mistakeTypeID, referatID:referatID, checked:checked });
+}
+
+function sendOtherMistake(referatID)
+{
+    $("#thank").show();
+    txtOther = $("#eOther").val();
+    checked = 1;
+    if (txtOther.length>0)
+        $.post('referat/mistake', { mistakeTypeID:0, referatID:referatID, checked:checked, txtOther:txtOther });
+    $("#eOther").attr('disabled','disabled');
+    $("#bOther").attr('disabled','disabled');
+}
+
+function otherMistake(referatID)
+{
+    if($("#chOther").prop("checked") == true)
+    {
+        $("#eOther").val('');
+        $("#eOther").removeAttr('disabled');
+        $("#bOther").removeAttr('disabled');
+        $("#dOther").show();
+    }
+    else{
+        $("#dOther").hide();
+        $.post('referat/mistake', { mistakeTypeID:0, referatID:referatID, checked:0 });
+    }
+}
+
+function findMistake(e)
+{
+    $(e).hide();
+    $("#boxMistake").show();
+}
+
+function footload(e){
+    $(e).hide();
+    $('#bInst').click();
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}

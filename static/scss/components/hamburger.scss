@@ -1,0 +1,32 @@
+.hamburger{
+    width: 20px;
+    height: 20px;
+    position: relative;
+
+    & span{
+        position: absolute;
+        background-color: white;
+        width: 20px;
+        height: 2px;
+        top:9px;
+        left:0;
+    }
+    &:after{
+        content:"";
+        position: absolute;
+        background-color: white;
+        width: 20px;
+        height: 2px;
+        top:4px;
+        left:0;
+    }
+    &:before{
+        content:"";
+        position: absolute;
+        background-color: white;
+        width: 20px;
+        height: 2px;
+        bottom:4px;
+        left:0;
+    }
+}

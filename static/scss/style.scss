@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+@import 'vars.scss';
+@import 'components/header.scss';
+@import 'components/hero.scss';
+@import 'components/nav.scss';
+@import 'components/box.scss';
+@import 'components/components.scss';
+@import 'components/greeting.scss';
+@import 'components/flex.scss';
+@import 'components/margin.scss';
+@import 'components/slider.scss';
+@import 'components/solutions.scss';
+@import 'components/quotes.scss';
+@import 'components/mob-header.scss';
+@import 'components/hamburger.scss';
+@import 'components/toglle-item.scss';
+@import 'components/workers.scss';
+@import 'components/footer.scss';
+@import 'components/atau.scss';
+@import 'components/card.scss';
+@import 'components/card-one.scss';
+@import 'components/single-inf.scss';
+@import './components/colors/colors.scss';
+@import './components/newComps/background.scss';
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+.page{
+    overflow: hidden;
+    background-color: #fefefe;
+}
+html{
+    font-size: 62.5%;
+}
+
+.hide{
+     overflow: hidden;
+     height: 100vh;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px 15px;
+}
+
+
+
+
+@media screen and (max-width:1000px){
+    html{
+        font-size: 55%;
+        
+    }
+   .nav{
+       display: none;
+   }
+}
+@media screen and (max-width:600px){
+    html{
+        font-size: 45%;
+    }
+}
+@media screen and (max-width:321px){
+    html{
+        font-size: 35%;
+    }
+}

@@ -1,0 +1,96 @@
+.toglle-item{
+    overflow: hidden;
+    padding: 0rem 2rem;
+    border-radius: 0.5rem;
+    background-color: white;
+
+    &:hover{
+        background-color: rgb(247, 247, 247);
+    }
+
+    &--active{
+        background-color: rgb(243, 243, 243);
+    }
+}
+.toglle-item__list{
+    display: inline-block;
+    position: relative;
+    height: auto;
+    overflow: hidden;
+    max-height: 0px;
+    list-style: none;  
+    border-radius: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap:1rem;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.2s linear;
+    cursor: pointer;
+    z-index: 99;
+    
+    @media screen and( max-width:360px) {
+        display: block;
+        grid-template-columns: 1fr;
+    }
+    &--active{
+        
+        max-height: 400px;
+        transition: 0.2s linear;
+    }
+    &:after{
+            content: ''; 
+            position: absolute; /* Абсолютное позиционирование */
+            bottom:100%;
+            left:20%; /* Положение треугольника */
+            border: 10px solid transparent; /* Прозрачные границы */
+            border-bottom: 10px solid black; /* Добавляем треугольник */
+    }
+
+    & li{
+        color: $blue;
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 1.5rem;  
+
+        &:hover{
+            color:darken(black,20%);
+        }
+    }
+    
+}
+.toglle-item__icon-container{
+    padding:3rem 0rem;
+}
+.toglle-item__icon{
+    color: $blue;
+    font-size: 4rem;    
+}
+.toglle-item__text{
+    color: $blue;
+    padding: 1rem;
+}
+.toglle-item__item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+
+    &:hover{
+        background-color: white;
+    }
+}
+.unselect{
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none;   /* Chrome/Safari/Opera */
+        -khtml-user-select: none;    /* Konqueror */
+        -moz-user-select: none;      /* Firefox */
+        -ms-user-select: none;       /* Internet Explorer/Edge */
+        user-select: none;  
+}
+.cursor-p{
+    cursor: pointer;
+}

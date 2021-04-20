@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
+    
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body class="">
+    <div class="page">
+        <!-- header -->
+        <header class="header">
+            <div class="container">
+                <div class="header__row">
+                    <a class="header__logo-link" href="{% url 'mainView' %}">
+                        <div class="header__logo">
+                            <div class="header__logo-img"><img class="header__img" src="{% static 'img/elements/Logo.png' %}"/></div>
+                            <span class="header__logo-text">Smart<span>Hub</span></span>   
+                        </div>
+                    </a>   
+                    <ul class="nav">
+                        {% url 'mainView' as mainView %}
+                        <li class="nav__item"><a class="nav__link {% if mainView == request.path %} nav__link--active {% endif%}" href="{{mainView}}"><i class="fas fa-home-lg-alt"></i> Главная</a></li>
+                        {% url 'inovationView' as inovationView %}
+                        <li class="nav__item"><a class="nav__link {% if inovationView == request.path %} nav__link--active {% endif%}" href="{{inovationView}}"><i class="fas fa-atom-alt"></i> Инновация</a></li>
+                        <li class="nav__item"><a class="nav__link" href="uslugii.html"><i class="fas fa-laptop-code"></i> Услуги</a></li>
+                        <li class="nav__item"><a class="nav__link" href="#"><i class="fas fa-shopping-cart"></i> Магазин</a></li>
+                        <li class="nav__item"><a class="nav__link" href="#"><i class="fas fa-rss"></i> Новости</a></li>
+                    </ul>
+                    <div id="hamburger" class="hamburger">
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <header id="menu" class="mob-header">
+            <div class="container">
+                <ul class="mob-header__row">
+                    <span id="close-burger" class="btn-close"><i class="fas fa-times-circle"></i></span>
+                    <li class="mob-header__item"><a class="mob-header__link" href=""><i class="fas fa-home-lg-alt"></i> Главная</a></li>
+                    <li class="mob-header__item"><a class="mob-header__link" href="inovation.html"><i class="fas fa-atom-alt"></i> Иновация</a></li>
+                    <li class="mob-header__item"><a class="mob-header__link" href="uslugii.html"><i class="fas fa-laptop-code"></i>  Услуги</a></li>
+                    <li class="mob-header__item"><a class="mob-header__link" href="#"><i class="fas fa-shopping-cart"></i> Магазин</a></li>
+                    <li class="mob-header__item"><a class="mob-header__link" href="#"><i class="fas fa-rss"></i> Новости</a></li>
+                </ul>
+            </div>
+        </header>
+        {% block content %}
+        {% endblock %}
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__top">
+                    <div class="footer__item">
+                        <a href=""> © 2021 Smart-HUB, Inc.</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href=""> Terms</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="">Privacy</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="">Security</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="">Docs</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="">Contact SmartHub</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="">Pricing</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="">API</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="">Training</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="">Blog</a>
+                    </div>
+                    <div class="footer__item">
+                        <a href="">About</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    
+</body>
+</html>

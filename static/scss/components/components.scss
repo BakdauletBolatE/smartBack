@@ -1,0 +1,62 @@
+.btn{
+    color: $silver;
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    line-height: normal;
+    text-decoration: none;
+    border:none;
+    /* Style for "Rectangle" */
+    border-radius: 2.4rem;
+    border: 0.2rem solid $silver;
+    background-color:$white;
+    padding:1.2rem 1.8rem;
+    transition: ease 0.2s;
+
+    &:hover{
+        border-color:$blue;
+        box-shadow: 0 0 1.4rem 3.5px rgba($blue, 0.26);
+        border-radius: 2.4rem;
+        background-color: $blue;
+        color:$white;
+        transition: ease 0.2s;
+    }
+    &--active{
+        border-color:$blue;
+        box-shadow: 0 0 1.4rem 3.5px rgba($blue, 0.26);
+        border-radius: 2.4rem;
+        background-color: $blue;
+        color:$white;
+        transition: 0.2s ease;
+
+        &:hover{
+            box-shadow: 0 0 1.4rem 6px rgba($blue, 0.26);
+            background-color: darken($blue,4%);
+        }
+    }
+
+}
+.main-title{
+    color: $blue;
+    font-size: 5rem;
+    letter-spacing: 1.25px;
+    font-weight: 500;
+}
+.secondary-title{
+    font-size: 3rem;
+    font-weight: 500;
+}
+.main-description{
+    color:$black;
+    line-height: normal;
+    font-size: 1.8rem;
+    font-weight: 500;
+
+    & h5{
+        font-size: 10rem;
+        font-weight: 600;
+        color:green;
+    }
+}

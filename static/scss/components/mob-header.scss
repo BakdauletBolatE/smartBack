@@ -1,0 +1,67 @@
+.mob-header{
+
+    position: absolute;
+    top:0;
+    right:0;
+    padding: 5rem 10rem;
+    height: 110vh;
+    z-index: 100;
+    display: none;
+    animation-name: showBurger; 
+    animation-duration: .5s; 
+    animation-fill-mode: forwards;
+    transform: translateX(100%);
+    background-color: rgba($color: $blue, $alpha: 0.7);
+    backdrop-filter: blur(1rem);
+    border-radius: 1rem;
+
+
+    &--active{
+        display: block;
+        position: absolute;
+        
+        
+    }
+}
+@keyframes showBurger {
+    0% {
+      display: block;
+      transform: translateX(100%); 
+    }
+  
+    100% {
+      opacity: 10; 
+      transform: translateX(0);
+    }
+}
+
+.mob-header__row{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    list-style: none;
+}
+.mob-header__item{
+    color:$white;
+    padding:1rem;
+}
+.mob-header__link{
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    color:$white;
+    transition: 0.2s ease;
+}
+
+.btn-close{
+    position: absolute;
+    top:2rem;
+    left:2rem;
+    font-size: 2rem;
+    color:white;
+
+    &:active{
+        transform: scale(1.1);
+    }
+}

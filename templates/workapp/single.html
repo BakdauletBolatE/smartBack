@@ -1,0 +1,27 @@
+{% extends 'layouts/app.html' %}
+
+{% block content %}
+<section class="single-inf">
+    <div class="container">
+        <div class="single-inf__ob">
+            <div class="single-inf__row">
+                <div class="single-inf__text">
+                    <h1 class="single-inf__title">{{worker.position}}</h1>
+                    <h3 class="single-inf__author">Автор: {{worker.name}}</h3>
+                    <time class="single-inf__time">Время: 22.01.21</time>
+                    <a class="btn single-inf__btn mt-7 " href="#">В корзину</a>
+                    
+                </div>
+                <div class="single-inf__img">
+                    <img src="{{worker.img.url}}" alt="">
+                </div>
+            </div>
+            <div class="single-inf_d">
+                <p class="single-inf__description">{{worker.description}}.</p>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+{% endblock %}
